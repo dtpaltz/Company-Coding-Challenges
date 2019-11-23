@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesOnFlight", "MoviesOnFlight\MoviesOnFlight.csproj", "{AAE73314-3614-4F09-885E-B7ACA55842EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K_NearestPostOffices", "K_NearestPostOffices\K_NearestPostOffices.csproj", "{0F4C6D95-77F5-416C-8353-EFF9382B219B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAE73314-3614-4F09-885E-B7ACA55842EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAE73314-3614-4F09-885E-B7ACA55842EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAE73314-3614-4F09-885E-B7ACA55842EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAE73314-3614-4F09-885E-B7ACA55842EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F4C6D95-77F5-416C-8353-EFF9382B219B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F4C6D95-77F5-416C-8353-EFF9382B219B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F4C6D95-77F5-416C-8353-EFF9382B219B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F4C6D95-77F5-416C-8353-EFF9382B219B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE1F80B4-6DFF-4249-9508-71B38A2CDCE6}
+	EndGlobalSection
+EndGlobal
