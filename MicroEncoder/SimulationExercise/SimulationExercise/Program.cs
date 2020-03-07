@@ -24,8 +24,10 @@ namespace SimulationExercise
             Console.Write($"{prompt}: ");
             var input = Console.ReadLine();
             var result = tryParse(input);
+
             if (result.HasValue)
                return result.Value;
+
             Console.WriteLine("Invalid input.");
          }
       }
@@ -36,6 +38,7 @@ namespace SimulationExercise
                               .Where(i => !string.IsNullOrWhiteSpace(i))
                               .Select(TryPosition)
                               .ToList();
+
          if (positions.Any(i => i.IsEmpty))
             return Optional.Empty;
 
@@ -47,6 +50,7 @@ namespace SimulationExercise
          var commands = inputs.Select(TryMachineCommand).ToList();
          if (commands.Any(i => i.IsEmpty))
             return Optional.Empty;
+
          return commands.Select(i => i.Value).ToList();
       }
 
@@ -60,7 +64,7 @@ namespace SimulationExercise
             'd' => MachineCommand.Down,
             'o' => MachineCommand.MeasurementOn,
             'f' => MachineCommand.MeasurementOff,
-            _ => Optional.Empty,
+            _ => Optional.Empty
          };
       }
 
@@ -68,6 +72,7 @@ namespace SimulationExercise
       {
          var pattern = new Regex(@"^\s*([0-9]+)\s+([0-9]+)\s*$");
          var result = pattern.Match(input);
+
          if (!result.Success)
             return Optional.Empty;
 
