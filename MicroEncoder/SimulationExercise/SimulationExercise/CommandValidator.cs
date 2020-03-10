@@ -70,9 +70,9 @@ namespace SimulationExercise
 				case MachineCommand.Right:
 					return new Vector(1, 0);
 				case MachineCommand.Up:
-					return new Vector(0, -1);
-				case MachineCommand.Down:
 					return new Vector(0, 1);
+				case MachineCommand.Down:
+					return new Vector(0, -1);
 				case MachineCommand.MeasurementOn:
 				case MachineCommand.MeasurementOff:
 				default:
