@@ -19,16 +19,9 @@ namespace SimulationExercise
 
 			SimConfiguration config = new SimConfiguration
 			{
-				MachineSize = new Vector(7, 7),
-				ProbePosition = new Stack<Vector>(new[] { new Vector(2, 4) }),
-				ObjectPositions = new List<Vector>()
-				{
-					new Vector(0, 2),
-					new Vector(1, 2),
-					new Vector(2, 2),
-					new Vector(3, 2),
-					new Vector(4, 1)
-				},
+				MachineSize = TryPosition("7 7").Value,
+				ProbePosition = new Stack<Vector>(new[] { new TryPosition("2 4").Value }),
+				ObjectPositions = TryPositions("0 2, 1 2, 2 2, 3 2, 4 1").Value,
 				MachineCommands = TryMachineCommands("DRODFRODDFR").Value
 			};
 
