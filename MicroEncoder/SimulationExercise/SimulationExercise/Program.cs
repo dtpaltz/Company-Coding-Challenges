@@ -20,7 +20,7 @@ namespace SimulationExercise
 			SimConfiguration config = new SimConfiguration
 			{
 				MachineSize = new Vector(7, 7),
-				ProbeStartPosition = new Vector(2, 4),
+				ProbePosition = new Stack<Vector>(new[] { new Vector(2, 4) }),
 				ObjectPositions = new List<Vector>()
 				{
 					new Vector(0, 2),
