@@ -9,6 +9,8 @@ namespace SimulationExercise
 		public Vector MachineSize { get; set; }
 
 		public Stack<Vector> ProbePosition { get; set; }
+		
+		public bool MeasurementModeOn { get; set; } = false;
 
 		public List<Vector> ObjectPositions { get; set; }
 
