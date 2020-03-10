@@ -22,6 +22,8 @@ namespace SimulationExercise
 			for (int i = 0; i < m_Configurations.Count; i++)
 			{
 				SimConfiguration sc = m_Configurations[i];
+				List<string> measurements = new List<string>();
+				
 				sb.AppendLine(new string('=', 50));
 				sb.AppendLine($"Command Test Simulation #{i + 1}");
 				sb.AppendLine(new string('=', 50));
@@ -29,8 +31,30 @@ namespace SimulationExercise
 
 				foreach (MachineCommand cmd in sc.MachineCommands)
 				{
-					// todo
+					if (cmd == MachineCommand.MeasurementOn || cmd == MachineCommand.MeasurementOff)
+					{
+						sc.MeasurementModeOn = cmd == MachineCommand.MeasurementOn;
+						continue;
+					}
+					
+					Vector nextProbePosition = sc.ProbePosition.Peek();
+					nextProbePosition.Translate(GetCommandMoveVector(cmd));
+					
+					// if nextProbePosition is off the table = ERROR
+					
+					// if nextProbePosition is an object position...
+						// if measure mode is ON, take measurement
+						// else WARNING measrement mode is not ON
+					// else push probe position and continue
 				}
+				
+				string measurementsReport = "WARNING - no measurements were collected during simulation";
+				
+				if (measurements.Count() > 0)
+					measurementsReport = "Measurments output: " + String.Join(", ", measurements);
+				
+				sb.AppendLine(measurementsReport);
+				sb.AppendLine("Probe end position: " + sc.ProbePosition.Peek().ToString());
 
 				yield return sb.ToString();
 				sb.Clear();
