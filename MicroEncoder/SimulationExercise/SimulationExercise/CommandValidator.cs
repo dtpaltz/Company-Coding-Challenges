@@ -25,9 +25,7 @@ namespace SimulationExercise
 				sb.AppendLine(new string('=', 50));
 				sb.AppendLine($"Command Test Simulation #{i + 1}");
 				sb.AppendLine(new string('=', 50));
-				sb.AppendLine($"Probe start position: " + sc.ProbeStartPosition.ToString());
-
-				Vector probeCurrentPosition = sc.ProbeStartPosition;
+				sb.AppendLine($"Probe start position: " + sc.ProbePosition.Peek().ToString());
 
 				foreach (MachineCommand cmd in sc.MachineCommands)
 				{
