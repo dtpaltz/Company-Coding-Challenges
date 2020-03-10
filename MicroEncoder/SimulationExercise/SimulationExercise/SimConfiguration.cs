@@ -8,7 +8,7 @@ namespace SimulationExercise
 	{
 		public Vector MachineSize { get; set; }
 
-		public Vector ProbeStartPosition { get; set; }
+		public Stack<Vector> ProbePosition { get; set; }
 
 		public List<Vector> ObjectPositions { get; set; }
 
