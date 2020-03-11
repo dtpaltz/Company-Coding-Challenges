@@ -74,7 +74,7 @@ namespace SimulationExercise
 				string measurementsReport = "WARNING - no measurements were collected during simulation";
 
 				if (measurements.Count > 0)
-					measurementsReport = "Measurments output: " + string.Join(", ", measurements);
+					measurementsReport = "Measurements output: " + string.Join(", ", measurements);
 
 				sb.AppendLine(measurementsReport);
 				sb.AppendLine("Probe end position: " + sc.ProbePosition.Peek().ToString());

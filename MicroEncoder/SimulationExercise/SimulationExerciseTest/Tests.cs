@@ -128,7 +128,7 @@ namespace SimulationExerciseTest
 			var cv = new CommandValidationEngine(config);
 			foreach (string testResults in cv.TestCommands())
 			{
-				Assert.IsTrue(testResults.Contains("Measurments output: [3, 2], [4, 1]"));
+				Assert.IsTrue(testResults.Contains("Measurements output: [3, 2], [4, 1]"));
 			}
 		}
 
