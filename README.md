@@ -30,9 +30,9 @@ Machine Size: 7 7
 Probe Starting Position: 2 4
 Object Positions: 0 2, 1 2, 2 2, 3 2, 4 1
 Machine Commands: DRODFRODDFR
-==================================================
+--------------------------------------------------
 Command Test Simulation #1
-==================================================
+--------------------------------------------------
 Probe start position: [2, 4]
 Move probe down to [2, 3]
 Move probe right to [3, 3]
