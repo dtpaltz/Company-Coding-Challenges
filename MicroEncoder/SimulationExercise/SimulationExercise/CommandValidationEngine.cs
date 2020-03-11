@@ -4,15 +4,15 @@ using System.Text;
 
 namespace SimulationExercise
 {
-	public class CommandValidator
+	public class CommandValidationEngine
 	{
 		private List<SimConfiguration> m_Configurations;
 
-		public CommandValidator(SimConfiguration config) : this(new List<SimConfiguration>() { config })
+		public CommandValidationEngine(SimConfiguration config) : this(new List<SimConfiguration>() { config })
 		{
 		}
 
-		public CommandValidator(List<SimConfiguration> configs)
+		public CommandValidationEngine(List<SimConfiguration> configs)
 		{
 			m_Configurations = configs;
 		}
@@ -39,28 +39,37 @@ namespace SimulationExercise
 					}
 
 					Vector nextProbePosition = sc.ProbePosition.Peek();
-					nextProbePosition.Translate(GetCommandMoveVector(cmd));
+					nextProbePosition.Translate(GetCommandTranslationVector(cmd));
 
 					if (nextProbePosition.X < 0 || nextProbePosition.X > sc.MachineSize.X || nextProbePosition.Y < 0 || nextProbePosition.Y > sc.MachineSize.Y)
 					{
-						sb.AppendLine("ERROR - invalid command directs the probe out of the machine tabele bounds");
+						sb.AppendLine("ERROR - command directs the probe out of the machine table bounds");
 						break;
 					}
 
-					var isObjectPosition = sc.ObjectPositions.Where(p => p.X == nextProbePosition.Y && p.Y == nextProbePosition.Y).ToList().Count > 0;
+					var isObjectPosition = sc.ObjectPositions.Where(p => p.X == nextProbePosition.X && p.Y == nextProbePosition.Y).ToList().Count > 0;
 
 					if (isObjectPosition)
 					{
+						sb.AppendLine($"Collide probe on {nextProbePosition.ToString()}");
+
 						if (sc.MeasurementModeOn)
+						{
 							measurements.Add(nextProbePosition.ToString());
+						}
 						else
+						{
 							sb.AppendLine("WARNING - measurement mode turned off during object collision");
+						}
 					}
 					else
 					{
+						sb.AppendLine($"Move probe {cmd.ToString().ToLower()} to {nextProbePosition.ToString()}");
 						sc.ProbePosition.Push(nextProbePosition);
 					}
 				}
+
+				sb.AppendLine("--- FINISHED ---").AppendLine();
 
 				string measurementsReport = "WARNING - no measurements were collected during simulation";
 
@@ -74,7 +83,7 @@ namespace SimulationExercise
 			}
 		}
 
-		private Vector GetCommandMoveVector(MachineCommand cmd)
+		private Vector GetCommandTranslationVector(MachineCommand cmd)
 		{
 			switch (cmd)
 			{
