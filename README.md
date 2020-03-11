@@ -24,14 +24,33 @@ Utilizing the partial solution provided the major changes to the initial code pr
 
 3) Input configuration vector values will be NOT be outside the user-defined bounds of the machine table size
 
+# Simulation Process
+
+1) When CommandValidationEngine.TestCommands() is called, the simulation engine iterates through all the command configurations it has received.
+
+2) With each configuration the simulation will iterate through the commands for that configuration
+
+3) If the command is a MeasurementModeOn/MeasurementModeOff direcrtive, then the mode is set and the iteration jumps to the next command
+
+4) The next position of the probe is calculate by converting the move direction to a translation vector, then added to the current probe position. Note: the probes position is stored as a Stack to allow for back-tracking.
+
+5) If the probes next position is outside the bounds of the table, then that is an error condition and the simulation ends.
+
+6) If the probes next position hosts an object, then take a measurement if the measurement mode is ON and then return to the probes previous position. Otherwise, push the probes current position to be that next position.
+
+7) END command iteration.
+
+8) Report the results of the simulation.
+
 # Sample Interaction & Output
 
 Machine Size: 7 7
 Probe Starting Position: 2 4
 Object Positions: 0 2, 1 2, 2 2, 3 2, 4 1
 Machine Commands: DRODFRODDFR
-
->>>>>>>> Command Test Simulation #1
+==================================================
+Command Test Simulation #1
+==================================================
 Probe start position: [2, 4]
 Move probe down to [2, 3]
 Move probe right to [3, 3]
